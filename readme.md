@@ -38,3 +38,30 @@ const paragraph1 = document.getElementsByClassName("p1")
 ```
 
 > Catatan : getElementsByClassName() akan menghasilkan sebuah htmlCollection
+
+### querySelector()
+merupakan method yang berfungsi untuk menseleksi atau mencari element html menggunakan selector yang mirip dengan selctor css
+
+#### Cara penggunaan
+```js
+const li2 = document.querySelector("section#b ul li:nth-child(2)")
+```
+> Catatan : querySelector() akan menghasilkan 1 saja element html
+
+### querySelectorAll()
+merupakan method yang berfungsi untuk menseleksi atau mencari element html mengguynakan selector yang mirip dengan selector css
+
+#### Cara penggunaan
+```js
+const p = document.querySelectorAll('p')
+```
+> Catatan : querySelectorAll() akan menghasilkan nodelist(array like object) yang mirp dengan array menggunakan indexing
+
+### mengubah node root
+di js dom kita dapat mengubah node root tidak selalu document
+
+#### Contoh
+```js
+const sectionB = document.getElementById("b")
+const p = sectionB .getElementsByTagName("p") // artinya mengambil tag html p di section yang mempunyai id b
+```
