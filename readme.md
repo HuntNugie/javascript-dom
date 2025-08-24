@@ -65,3 +65,6 @@ di js dom kita dapat mengubah node root tidak selalu document
 const sectionB = document.getElementById("b")
 const p = sectionB .getElementsByTagName("p") // artinya mengambil tag html p di section yang mempunyai id b
 ```
+
+## DOM MANIPULATION
+Merupakan istilah dimana kita
