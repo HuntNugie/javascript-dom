@@ -233,3 +233,55 @@ const h2Baru = document.createElement("h2")
 h2Baru.textContent = "Ini adalah judul baru"
 sectionB.replaceChild(h2Baru,para)
 ```
+
+## Events
+merupakan sebuah kejadian yang di lakukan user seperti mengklik mouse, mengetik di keyboard dan lain lain.
+<br>
+
+**Secara umum ada dua cara untuk menjalankan events yang user lakukan**
+- Event Handler
+- addEventListener
+
+### Event Handler
+Event Handler merupakan mengatasi event(kejadian) yang di lakukan user akan melakukan apa
+<br>
+
+**Penulisan event handler ada dua cara**
+#### Inline html
+```html
+ <p class="p3" onclick="ubahWarna()">paragraf 3</p>
+```
+**Di dalam javascript**
+```js
+function ubahWarna(){
+    p3.style.backgroundColor = "lightblue"
+}
+```
+#### element method
+```js
+const p2 = document.querySelector(".p2")
+
+// menggunakan method
+function ubah(){
+    p2.style.backgroundColor = "lightblue"
+}
+p2.onclick = ubah
+```
+
+### addEventListener
+addEventListener merupakan sebuah method untuk menjalankan fungsi saat kejadian tertentu
+
+#### Cara penggunaan
+```js
+const ul = document.querySelector("section#b ul")
+// menggunakan addEventListener
+// secara definisi dan fungsi sama seperti event Handler
+document.querySelector("section#b p").addEventListener("click",(e)=>{
+    let baru = document.createElement("li")
+    baru.textContent = "baru"
+    ul.appendChild(baru)
+})
+```
+
+### Perbedaan event handler vs addEventListener
+perbedaan menggunakan event handler dengan addEventListener adalah jika melakukan dua events secara bersamaan dan menggunakan jenis event yang sama maka saat menggunakan event handler akan menimpa menjadi hanya menggunakan event yang terbaru nya saja itu berbeda saat menggunakan addEventListener tidak akan menimpa event yang sebelumnya sudah jalan tetapi akan menambahkan dan menjadikan jalan secara bersamaan
