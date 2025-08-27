@@ -169,4 +169,67 @@ berfungsi untuk menggantikan class yang ada di element html dengan class yang di
 judul.classList.replace("biru-muda","pink")
 ```
 
+### .createElement()
+berfungsi untuk membuat element html baru
 
+#### Cara penggunaan
+```js
+const pBaru = document.createElement("p") // ini artinya buat element baru di document
+```
+
+### .createTextNode()
+berfungsi untuk menambahkan text node 
+
+#### Cara penggunaan
+```js
+const text = document.createTextNode("Ini adalah paragraph baru")
+```
+
+### parentNode.appendChild()
+berfungsi untuk menambahkan node ke dalam parent node dan hanya menerima node saja, jika di dalam paarentNode sudah memiliki node lain di dalmnya maka node yang baru di tambahkan akan mengisi di paling akhir child node yang berada di dalam parent node nya
+
+#### Cara penggunaan
+```js
+pBaru.appendChild(text) // ini artinya memasukan textNode ke dalam element baru dibuat nya
+```
+
+### node.cloneNode()
+berfungsi untuk mengcloning element node nya sehingga bisa menduplikasi node tersebut agar bisa di tambahkan ke dalam parent node yang lain karena jika tidak menggunakan cloning seperti ini maka jika kita menambahkan node yang sama di 2 parent yang berbeda maka node tersebut akan berpindah ke parent yang terakhir ia tambahkan jadi bukan cloning maka menggunakan cloneNode bisa menjadi solusi untuk masalah tersebut
+
+#### Cara penggunaan
+```js
+let clone = pBaru.cloneNode(true) // artinya variabel clone akan berisi node element baru dari pBaru jika parameter di isi dengan true maka akan di cloning berserta seluruh isi child node nya tetapi jika di isi false(secara default false) hanya akan di isi element parent node nya saja tidak dengan child node nya
+```
+
+### parentNode.insertBefore()
+berfungsi untuk menambahkan node baru di parent node sebelum child node apa di dalam parent node nya, parameter pertama di isi dengan node baru dan parameter ke dua di isi dengan node child nya yang di isi sebelum apa
+
+#### Cara penggunaan
+```js
+const liBaru = document.createElement("li")
+liBaru.textContent = "Ini adalah li Baru"
+// tangkap ul nya dan tambahkan element baru ini di paling akhir ul nya
+const ul = document.querySelector("section#b ul")
+const li2 = ul.querySelector("li:nth-child(2)")
+ul.insertBefore(liBaru,li2)
+```
+
+### parentNode.removeChild()
+berfungsi untuk menghapus child Node yang ada di dalam parent node, dan parameter nya haruslah di isi dengan node
+
+#### Cara penggunaan
+```js
+sectionA.removeChild(sectionA.querySelector("a"))
+```
+
+### parentNode.replaceChild()
+berfungsi untuk menggantik node child yang ada di dalam parent node dengan node yang baru
+
+#### Cara penggunaan
+```js
+const sectionB = document.getElementById("b")
+const para = sectionB.querySelector("p")
+const h2Baru = document.createElement("h2")
+h2Baru.textContent = "Ini adalah judul baru"
+sectionB.replaceChild(h2Baru,para)
+```
