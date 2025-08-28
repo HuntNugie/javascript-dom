@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>latihan with chatgpt</title>
+</head>
+<body>
+    <div></div>
+    <button id="btn">Klik saya</button>
+    <ul>
+        <li>item lama</li>
+        <li>item lama</li>
+        <li>item lama</li>
+    </ul>
+    <section id="a">
+        <p>paragraph a.1</p>
+        <p>paragraph a.2</p>
+        <p>paragraph a.3</p>
+    </section>
+    <section id="b">
+        <p>paragraph b.1</p>
+        <p>paragraph b.2</p>
+        <p>paragraph b.3</p>
+    </section>
+    <script>
+        // latihan pertama
+        /*
+        1. Manipulasi Sederhana
+
+Buat file HTML dengan div kosong, lalu gunakan JS untuk:
+
+Membuat <p> baru bertuliskan "Halo Nugie".
+
+Tambahkan ke dalam div.
+
+Beri warna teks biru dengan style.
+        */
+       const div = document.querySelector("div")
+       const pBaru = document.createElement("p")
+       pBaru.append("Halo nugie")
+       div.appendChild(pBaru)
+
+
+    //    latihan kedua
+    /*
+    2. Manipulasi Atribut & Class
+
+Buat tombol <button id="btn">Klik Aku</button>.
+
+Saat diklik:
+
+Tambahkan class "aktif" ke tombol.
+
+Kalau tombol sudah punya class "aktif", ganti dengan "nonaktif" (gunakan classList.toggle atau replace).
+
+Tampilkan class yang aktif dengan console.log.
+    */
+   const button = document.getElementById("btn")
+   button.addEventListener("click",()=>{
+        if(button.classList.contains("aktif")){
+            button.classList.replace("aktif","nonaktif")
+        }else if(button.classList.contains("nonaktif")){
+            button.classList.replace("nonaktif","aktif")
+        }else{
+            button.classList.add("aktif")
+        }
+        console.log(`Sekarang sedang ${button.className}`)
+    })
+
+    // latihan ketiga
+    /*
+    3. Insert & Remove
+
+Buat <ul> dengan 3 <li>.
+
+Tambahkan tombol "Tambah Item".
+
+Saat diklik, tambahkan <li> baru di urutan ke-2 (pakai insertBefore).
+
+Tambahkan tombol "Hapus Item".
+
+Saat diklik, hapus item terakhir (pakai removeChild).
+    */
+   const ul = document.querySelector("ul")
+   button.textContent = "Tambah Item"
+   const hapus = document.createElement("button")
+   hapus.append("Hapus item")
+   const body = document.querySelector("body")
+   body.appendChild(hapus)
+
+
+    button.addEventListener("click",()=>{
+        const liBaru = document.createElement("li")
+        liBaru.textContent = "item baru"
+        ul.insertBefore(liBaru,ul.querySelector("li:nth-child(2)"))        
+    })
+
+    hapus.addEventListener("click",() => {
+        const li = ul.querySelector("li:last-child")
+        // Array.from(li).forEach((e) => {
+        //     e.rem
+        // })
+        ul.removeChild(li)
+    })
+
+    // latihan ke empat 
+    /*
+    4. Replace & Clone
+
+Ambil salah satu <p> di halaman.
+
+Ganti dengan <h2> baru bertuliskan "Ini Judul Baru" (pakai replaceChild).
+
+Clone <h2> tersebut, lalu tambahkan ke bagian bawah section lain.
+    */
+   const h2Baru = document.createElement("h2")
+   h2Baru.textContent = "Ini judul Baru"
+   const sectionA = document.getElementById("a")
+   const sectionb = document.getElementById("b")
+   sectionA.replaceChild(h2Baru,sectionA.querySelector("p"))
+   
+   const clone = h2Baru.cloneNode(true)
+   sectionb.replaceChild(clone,sectionb.querySelector("p:last-child"))
+
+//    latihan ke lima
+/*
+Buat <p> dengan teks "Klik saya untuk ubah warna".
+
+Gunakan:
+
+inline HTML → ubah warna teks.
+
+onclick property → ubah background.
+
+addEventListener → tambahkan <li> baru ke dalam <ul>.
+
+Perhatikan perbedaan hasilnya kalau 2 handler dipasang di event yang sama.
+*/
+const pAja = document.createElement("p")
+pAja.textContent = "Klik saya untuk ubah warna"
+pAja.setAttribute("onclick","ubahWarna()")
+body.insertBefore(pAja,hapus)
+let ubahWarna = function(){
+    pAja.style.backgroundColor = "darkGreen"
+}
+pAja.addEventListener("click",()=>{
+    const liBaru = document.createElement("li")
+    liBaru.textContent = "Ini baru loh"
+    ul.appendChild(liBaru)
+})
+// setelah di perhatikan keduanya akan menjalankan fungsi nya masing masing tanpa menimpa satu sama lain
+
+    </script>
+</body>
+</html>
