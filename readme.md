@@ -285,3 +285,55 @@ document.querySelector("section#b p").addEventListener("click",(e)=>{
 
 ### Perbedaan event handler vs addEventListener
 perbedaan menggunakan event handler dengan addEventListener adalah jika melakukan dua events secara bersamaan dan menggunakan jenis event yang sama maka saat menggunakan event handler akan menimpa menjadi hanya menggunakan event yang terbaru nya saja itu berbeda saat menggunakan addEventListener tidak akan menimpa event yang sebelumnya sudah jalan tetapi akan menambahkan dan menjadikan jalan secara bersamaan
+
+# Traversal
+merupakan penyelusuran node atau element dari node atau element yang sudah di seleksi
+
+## parentElement
+akan mengambil Element parent dari element html yang di seleksi
+
+### Cara penggunaan
+```js
+document.querySelector(".close").parentElement
+```
+
+## parentNode
+akan mengambil bisa document,element, atau document fragment dari node atau element yang sudah di seleksi
+
+### Cara penggunaan
+```js
+document.querySelector(".close").parentNode
+```
+
+## nextSibling
+akan mengambil element atau bahkan apapun itu yang berada di sebelah atau next dari element tersebut yang memiliki parent yang sama dengan node atau element yang di seleksi
+
+### Cara penggunaan
+```js
+document.querySelector(".judul").nextSibling
+```
+
+## nextElementSibling
+akan mengambil hanya element dari sebelah atau next dari element yang di seleksi dan memiliki parent yang sama
+
+### Cara penggunaan
+```js
+document.querySelector(".close").nextElementSibling
+```
+
+## previousSibling
+akan mengambil element atau bahkan apapun itu yang berada di Sebelum dari element tersebut yang memiliki parent yang sama dengan node atau element yang di seleksi
+
+### Cara penggunaan
+```js
+document.querySelector(".close").previousSibling
+```
+
+## previousElementSibling
+akan mengambil hanya element dari sebelum dari element yang di seleksi dan memiliki parent yang sama
+
+### Cara penggunaan
+```js
+document.querySelector(".close").previousElementSibling
+```
+
