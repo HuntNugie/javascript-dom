@@ -337,3 +337,16 @@ akan mengambil hanya element dari sebelum dari element yang di seleksi dan memil
 document.querySelector(".close").previousElementSibling
 ```
 
+# preventDefault
+merupakan sebuah method di javascript yang berfungsi untuk mencegah aksi default dari sistem/browser/os yang terjadi ataupun aksi default dari element html
+
+## Cara penggunaan
+```js
+const link = document.querySelectorAll(".close")
+link.forEach((e) => {
+    e.addEventListener("click",(el)=>{
+        el.preventDefault()
+        el.target.parentElement.remove()
+    })
+})
+```
