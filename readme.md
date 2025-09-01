@@ -350,3 +350,21 @@ link.forEach((e) => {
     })
 })
 ```
+
+# Event bubbling
+merupakan istilah dimana event dari child node naik ke atas(bubble) ke parent nya sehingga semisalnya parent memiliki event tersendiri dan child juga memiliki event tersendiri jika kita hit event child nya maka akan menjalankan lebih dulu event dari child baru akan menjalnakan event dari parent nya
+
+## event.stopPropagation()
+berfungsi untuk mencegah dan menghentikan event parent yang akan di jalankan setelah event child jadi hanya event child yang akan di jalankan
+
+### Cara penggunaan
+```js
+const close = document.querySelectorAll(".close")
+close.forEach((e) => {
+    e.addEventListener("click",function(el){
+        el.target.parentElement.remove()
+        el.preventDefault()
+        el.stopPropagation()//ini berfungsi untuk mencegah fungsi event dari sifat event bubble jadi hanya fungsi event ini yang akan berjalan
+    })
+})
+```
